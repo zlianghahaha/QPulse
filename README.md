@@ -15,9 +15,11 @@ If you want to reproduce the result. Please go to `/MatricsMeasurement/data/`.
 
 You can find a ipynb file `Pulse_Expressibility&Entanglement.ipynb`, open the file and input data from `/MatricsMeasurement/data/matricsmeasurementdata`
 
-As for expressivity, please go to `/MatricsMeasurement/Expressivity`, , and check [Expressivity Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/Expressivity/JakartaPulseVQA_Expressibility.ipynb).this is an example for calculate one qubit pulse's expressivity, the method for calculate the measured result from target pulse, theoritical result, K-L divergence are all included.
+As for expressivity, please go to `/MatricsMeasurement/Expressivity`, and check [Expressivity Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/Expressivity/JakartaPulseVQA_Expressibility.ipynb).this is an example for calculate one qubit pulse's expressivity, the method for calculate the measured result from target pulse, theoritical result, K-L divergence are all included.
 
 As for entanglement capability, please go to `/MatricsMeasurement/EntanglementCapability` check [Entangement Capability Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/EntanglementCapability/Pulse_Entanglement_Example.ipynb).
+
+As for effective parameter dimension, please go to `/MatricsMeasurement/EffictiveparamterDimension` check [Effective Parameter Dimension Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/EffectiveparameterDimension/EffectiveParameterDimension_Example.ipynb).
 
 
 ## 2. Application Benchmark
