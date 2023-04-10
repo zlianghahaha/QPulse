@@ -52,3 +52,12 @@ And be sure to realize what kind of pulse-level design space that you want.
 
 Pulse ID 1,2,3,4,5,6 are corresponding to Hardware-efficient(HE) pulse, fixed CR amp HE pulse, Decay-layer pulse, fixed CR amp Decay-layer pulse, Dressed pulse, fixed CR dressed pulse. For the detail structure of these pulses, please refer to our paper.
 
+[Example Script for Application Benchmark](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/example_script.sh) have two examples of quantum chemistry and quantum finance.
+
+```python
+python -W ignore -u main.py --backend=FakeManila --application=chemistry --pulse_id=1 --molecule=H2 --n_parameters=7 > testchemistyH2HE2q.txt&
+
+```
+
+Means run with the Qiskit-Dynamics with system model from FakeManila, and the application is ground state energy for H2 of quantum chemistry, the pulse-level design space is hardware-efficient pulse with 7 parameters.
+
