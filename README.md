@@ -11,15 +11,13 @@ pip -r requirements.txt
 This section is designed for measure the expressivity, entanglement capability, effective parameter dimention of the parameterized quantum pulse.
 For 6 proposed pulse-level design space's matric measurement results, we store all the data with `.pickle` format.
 
-If you want to reproduce the result. Please go to `/MatricsMeasurement/data/`
+If you want to reproduce the result. Please go to `/MatricsMeasurement/data/`.
 
 You can find a ipynb file `Pulse_Expressibility&Entanglement.ipynb`, open the file and input data from `/MatricsMeasurement/data/matricsmeasurementdata`
 
-As for expressivity, please go to `/MatricsMeasurement`
+As for expressivity, please go to `/MatricsMeasurement/Expressivity`, , and check [Expressivity Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/Expressivity/JakartaPulseVQA_Expressibility.ipynb).this is an example for calculate one qubit pulse's expressivity, the method for calculate the measured result from target pulse, theoritical result, K-L divergence are all included.
 
-Open the file `JakartaPulseVQA_Expressibility`, this is an example for calculate one qubit pulse's expressivity, the method for calculate the measured result from target pulse, theoritical result, K-L divergence are all included.
-
-As for entanglement capability, please go to `/MatricsMeasurement/Expressivity` check [Entangement Capability Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/EntanglementCapability/Pulse_Entanglement_Example.ipynb).
+As for entanglement capability, please go to `/MatricsMeasurement/EntanglementCapability` check [Entangement Capability Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/EntanglementCapability/Pulse_Entanglement_Example.ipynb).
 
 
 ## 2. Application Benchmark
