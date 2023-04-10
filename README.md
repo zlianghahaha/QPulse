@@ -1,33 +1,31 @@
 # Parameterized Quantum Pulse
-This is the tool for measure the expressivity, entanglement capability, effective parameter dimention of the parameterized quantum pulse. And 6 different pulse-level design space available for application benchmark. 
+This tool is designed to measure the expressivity, entanglement capability, and effective parameter dimension of parameterized quantum pulses. It also provides 6 different pulse-level design spaces for application benchmarking.
 
-please install all the requirement on your VM or conda.
+To begin, please install all the required packages on your virtual machine or conda environment by running:
 
 ```python
-pip -r requirements.txt
+pip install -r requirements.txt
 ```
 
-## 1. Matric Measurement
-This section is designed for measure the expressivity, entanglement capability, effective parameter dimention of the parameterized quantum pulse.
-For 6 proposed pulse-level design space's matric measurement results, we store all the data with `.pickle` format.
+## 1. Metric Measurement
+This section focuses on measuring the expressivity, entanglement capability, and effective parameter dimension of the parameterized quantum pulses. We provide metric measurement results for 6 proposed pulse-level design spaces, which are stored in `.pickle` format.
 
-If you want to reproduce the result. Please go to `/MatricsMeasurement/data/`.
+If you want to reproduce the result from the paper. Please go to `/MetricsMeasurement/data/`.
 
-You can find a ipynb file [Pulse_Expressibility&Entanglement](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/data/Pulse_Expressibility%26Entanglement.ipynb), open the file and input data from `/MatricsMeasurement/data/matricsmeasurementdata`
+You'll find a Jupyter Notebook file [Pulse_Expressibility&Entanglement](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/data/Pulse_Expressibility%26Entanglement.ipynb), Open the file and import data from `/MetricsMeasurement/data/metricsmeasurementdata`
 
-As for expressivity, please go to `/MatricsMeasurement/Expressivity`, and check [Expressivity Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/Expressivity/JakartaPulseVQA_Expressibility.ipynb).this is an example for calculate one qubit pulse's expressivity, the method for calculate the measured result from target pulse, theoritical result, K-L divergence are all included.
+As for expressivity, please go to `/MetricsMeasurement/Expressivity`, and check [Expressivity Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/Expressivity/JakartaPulseVQA_Expressibility.ipynb).This example demonstrates how to calculate the expressivity of a single-qubit pulse, including methods to compute the measured result from the target pulse, theoretical result, and K-L divergence.
 
-As for entanglement capability, please go to `/MatricsMeasurement/EntanglementCapability` check [Entangement Capability Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/EntanglementCapability/Pulse_Entanglement_Example.ipynb).
+For entanglement capability, navigate to `/MetricsMeasurement/EntanglementCapability` check [Entangement Capability Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/EntanglementCapability/Pulse_Entanglement_Example.ipynb).
 
-As for effective parameter dimension, please go to `/MatricsMeasurement/EffictiveparamterDimension` check [Effective Parameter Dimension Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/EffectiveparameterDimension/EffectiveParameterDimension_Example.ipynb).
+As for effective parameter dimension, please go to `/MetricsMeasurement/EffictiveparamterDimension` check [Effective Parameter Dimension Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/EffectiveparameterDimension/EffectiveParameterDimension_Example.ipynb).
 
 
 ## 2. Application Benchmark
 
-Ready for the application?
-At this very early version, we provide two applications: VQE for Ground state energy of quantum chemistry, and portfolio optimization of quantum finance.
+Ready for the application? In this early version, we provide two applications: VQE for ground state energy of quantum chemistry and portfolio optimization for quantum finance.
 
-We have args:
+We have the following arguments:
 
 ```python
 '--backend',  type=str,   default='ibmq_quito',help='name of the backend(Or a simulator like FakeManila)')
@@ -45,19 +43,16 @@ We have args:
 '--rhobeg',   type=float, default=0.1 ,        help='rhobeg for non-gradient optimizer')
 '--n_parameters',   type=int, default=7,       help='number of parameters in pulse ansatz')
 ```
-Please noticed if you want to do application as chemistry, you should to also define the molecule, if you don't, then the molecule will be default to H2.
-And if you want to do application as finance, please indicate the n_assets, otherwise, it is automatically set to 2.
+Please note that if you want to run an application in chemistry, you should define the molecule. If you don't, the molecule will default to H2. And if you want to run an application in finance, please specify the `n_assets`, otherwise, it will be set to 2 automatically.
+Also, be sure to select the desired pulse-level design space.
 
-And be sure to realize what kind of pulse-level design space that you want. 
+Pulse IDs 1, 2, 3, 4, 5, 6 correspond to Hardware-efficient (HE) pulse, fixed CR amp HE pulse, Decay-layer pulse, fixed CR amp Decay-layer pulse, Dressed pulse, and fixed CR dressed pulse. For detailed structures of these pulses, please refer to our paper.
 
-Pulse ID 1,2,3,4,5,6 are corresponding to Hardware-efficient(HE) pulse, fixed CR amp HE pulse, Decay-layer pulse, fixed CR amp Decay-layer pulse, Dressed pulse, fixed CR dressed pulse. For the detail structure of these pulses, please refer to our paper.
-
-[Example Script for Application Benchmark](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/example_script.sh) have two examples of quantum chemistry and quantum finance.
+[Example Script for Application Benchmark](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/example_script.sh) provides two examples for quantum chemistry and quantum finance.
 
 ```python
 python -W ignore -u main.py --backend=FakeManila --application=chemistry --pulse_id=1 --molecule=H2 --n_parameters=7 > testchemistyH2HE2q.txt&
 
 ```
 
-Means run with the Qiskit-Dynamics with system model from FakeManila, and the application is ground state energy for H2 of quantum chemistry, the pulse-level design space is hardware-efficient pulse with 7 parameters.
-
+This example runs Qiskit-Dynamics with the system model from FakeManila, and the application is ground state energy for H2 in quantum chemistry. The pulse-level design space is hardware-efficient pulse with 7 parameters.
