@@ -13,7 +13,7 @@ For 6 proposed pulse-level design space's matric measurement results, we store a
 
 If you want to reproduce the result. Please go to `/MatricsMeasurement/data/`.
 
-You can find a ipynb file `Pulse_Expressibility&Entanglement.ipynb`, open the file and input data from `/MatricsMeasurement/data/matricsmeasurementdata`
+You can find a ipynb file [Pulse_Expressibility%26Entanglement](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/data/Pulse_Expressibility%26Entanglement.ipynb), open the file and input data from `/MatricsMeasurement/data/matricsmeasurementdata`
 
 As for expressivity, please go to `/MatricsMeasurement/Expressivity`, and check [Expressivity Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/Expressivity/JakartaPulseVQA_Expressibility.ipynb).this is an example for calculate one qubit pulse's expressivity, the method for calculate the measured result from target pulse, theoritical result, K-L divergence are all included.
 
