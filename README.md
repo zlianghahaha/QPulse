@@ -14,7 +14,7 @@ At this very early version, we provide two applications: VQE for Ground state en
 We have args:
 
 ```python
-'--backend',  type=str,   default='ibmq_quito',help='name of the backend(not a simulator)')
+'--backend',  type=str,   default='ibmq_quito',help='name of the backend(Or a simulator like FakeManila)')
 '--optimizer',type=str,   default='COBYLA',    help='name of the non-gradient optimizer')
 '--policy',   type=str,   default='cxrx',      help='name of the pulse growth policy, deleted in this version')
 '--application',  type=str,   default='chemistry',      help='name of the benchmark application')
