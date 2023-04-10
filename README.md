@@ -5,7 +5,7 @@ please install all the requirement on your VM or conda.
 
 ```python
 pip -r requirements.txt
-```python
+```
 
 Ready for the application?
 At this very early version, we provide two applications: VQE for Ground state energy of quantum chemistry, and portfolio optimization of quantum finance.
