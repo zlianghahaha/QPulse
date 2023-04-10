@@ -19,7 +19,9 @@ As for expressivity, please go to `/MatricsMeasurement`
 
 Open the file `JakartaPulseVQA_Expressibility`, this is an example for calculate one qubit pulse's expressivity, the method for calculate the measured result from target pulse, theoritical result, K-L divergence are all included.
 
-As for entanglement capability, check[Entangement Capability Example](./main/MatricsMeasurement/EntanglementCapability/Pulse_Entanglement_Example.ipynb)
+As for entanglement capability, please go to `/MatricsMeasurement/Expressivity` check [Entangement Capability Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MatricsMeasurement/EntanglementCapability/Pulse_Entanglement_Example.ipynb).
+
+
 ## 2. Application Benchmark
 
 Ready for the application?
