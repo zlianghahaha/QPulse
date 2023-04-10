@@ -31,6 +31,8 @@ We have args:
 ```
 Please noticed if you want to do application as chemistry, you should to also define the molecule, if you don't, then the molecule will be default to H2.
 And if you want to do application as finance, please indicate the n_assets, otherwise, it is automatically set to 2.
+
 And be sure to realize what kind of pulse-level design space that you want. 
+
 Pulse ID 1,2,3,4,5,6 are corresponding to Hardware-efficient(HE) pulse, fixed CR amp HE pulse, Decay-layer pulse, fixed CR amp Decay-layer pulse, Dressed pulse, fixed CR dressed pulse. For the detail structure of these pulses, please refer to our paper.
 
