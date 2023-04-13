@@ -16,9 +16,9 @@ You'll find a Jupyter Notebook file [Pulse_Expressibility&Entanglement](https://
 
 As for expressivity, please go to `/MetricsMeasurement/Expressivity`, and check [Expressivity Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/Expressivity/JakartaPulseVQA_Expressibility.ipynb).This example demonstrates how to calculate the expressivity of a single-qubit pulse, including methods to compute the measured result from the target pulse, theoretical result, and K-L divergence.
 
-For entanglement capability, navigate to `/MetricsMeasurement/EntanglementCapability` check [Entangement Capability Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/EntanglementCapability/Pulse_Entanglement_Example.ipynb).
+For entanglement capability, navigate to `/MetricsMeasurement/EntCapability` check [Entangement Capability Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/EntCapability/Pulse_Ent_Example.ipynb).
 
-As for effective parameter dimension, please go to `/MetricsMeasurement/EffictiveparamterDimension` check [Effective Parameter Dimension Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/EffectiveparameterDimension/EffectiveParameterDimension_Example.ipynb).
+As for effective parameter dimension, please go to `/MetricsMeasurement/EPD` check [Effective Parameter Dimension Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/EPD/EPD_Example.ipynb).
 
 
 ## 2. Application Benchmark
