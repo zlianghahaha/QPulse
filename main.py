@@ -40,7 +40,7 @@ if __name__ == '__main__':
     parser.add_argument('--n_step',   type=int,   default=1,           help='number of pulse_layers')
     parser.add_argument('--max_jobs', type=int,   default=8,           help='number of max_jobs for multiprocessing')
     parser.add_argument('--rhobeg',   type=float, default=0.1 ,        help='rhobeg for non-gradient optimizer')
-    parser.add_argument('--n_parameters',   type=int, default=7,       help='number of parameters in pulse ansatz')
+    #parser.add_argument('--n_parameters',   type=int, default=7,       help='number of parameters in pulse ansatz')
 
     args = parser.parse_args()
     backend_str = args.backend
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     n_step      = args.n_step
     rhobeg      = args.rhobeg    
     max_jobs    = args.max_jobs
-    parameters  = args.n_parameters
+    #parameters  = args.n_parameters
 
     seed = 40
     np.random.seed(seed)
@@ -78,6 +78,20 @@ if __name__ == '__main__':
         else:
             print('Molecule not Found')
         pauli_dict, n_qubit = pauli_dict_dist(dist=dist_list[0],molecule=molecule)
+        if pulse_id == 1:
+            parameters = 5*n_qubit - 3
+        elif pulse_id == 2:
+            parameters = 2*(2*n_qubit - 1)
+        elif pulse_id == 3:
+            parameters = 6*n_qubit - 3
+        elif pulse_id == 4:
+            parameters = 5*n_qubit -2
+        elif pulse_id == 5:
+            parameters = 9 * n_qubit -7
+        elif pulse_id == 6:
+            parameters = 8*n_qubit - 6
+        else:
+            print('Please select correct Pulse_ID.')
         params = np.zeros(parameters)
         LC = gen_LC_finance(n_qubit, parameters)
         #pauli_dict = finance_dict(2,seed,0.5)
@@ -87,6 +101,21 @@ if __name__ == '__main__':
         print('The optimized loss func value: {}'.format(finance_res.fun))
     elif application == 'finance':
         pauli_dict = finance_dict(assets,seed,0.5)
+        n_qubit = assets
+        if pulse_id == 1:
+            parameters = 5*n_qubit - 3
+        elif pulse_id == 2:
+            parameters = 2*(2*n_qubit - 1)
+        elif pulse_id == 3:
+            parameters = 6*n_qubit - 3
+        elif pulse_id == 4:
+            parameters = 5*n_qubit -2
+        elif pulse_id == 5:
+            parameters = 9 * n_qubit -7
+        elif pulse_id == 6:
+            parameters = 8*n_qubit - 6
+        else:
+            print('Please select correct Pulse_ID.')
         params = np.zeros(parameters)
         LC = gen_LC_finance(assets, parameters)
         finance_res = minimize(finance,params,args=(pauli_dict,assets,backend,max_jobs,n_shot,pulse_id),method=optimizer,
