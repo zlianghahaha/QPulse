@@ -1,5 +1,6 @@
 # Parameterized Quantum Pulse
-This tool is designed to measure the expressivity, entanglement capability, and effective parameter dimension of parameterized quantum pulses. It also provides 6 different pulse-level design spaces for application benchmarking.
+This tool is designed to give a detailed guidance for how to design pulse-level quantum circuit.
+At this early version we provide: measure the expressivity, entanglement capability, and effective parameter dimension of parameterized quantum pulses, and also provide 6 different suggested pulse-level design spaces for application benchmarking.
 
 To begin, please install all the required packages on your virtual machine or conda environment by running:
 
