@@ -30,7 +30,7 @@ We have the following arguments:
 ```python
 '--backend',  type=str,   default='ibmq_quito',help='name of the backend(Or a simulator like FakeManila)')
 '--optimizer',type=str,   default='COBYLA',    help='name of the non-gradient optimizer')
-'--policy',   type=str,   default='cxrx',      help='name of the pulse growth policy, deleted in this version')
+'--policy',   type=str,   default='cxrx',      help='name of the pulse growth policy, related to NAPA and have not added in this version.')
 '--application',  type=str,   default='chemistry',      help='name of the benchmark application')
 '--pulse_id', type=int,   default=1,           help='indicate the design space at pulse level.')
 '--molecule', type=str,   default='H2',        help='name of the molecules')
@@ -41,7 +41,6 @@ We have the following arguments:
 '--n_step',   type=int,   default=1,           help='number of pulse_layers')
 '--max_jobs', type=int,   default=8,           help='number of max_jobs for multiprocessing')
 '--rhobeg',   type=float, default=0.1 ,        help='rhobeg for non-gradient optimizer')
-'--n_parameters',   type=int, default=7,       help='number of parameters in pulse ansatz')
 ```
 Please note that if you want to run an application in chemistry, you should define the molecule. If you don't, the molecule will default to H2. And if you want to run an application in finance, please specify the `n_assets`, otherwise, it will be set to 2 automatically.
 Also, be sure to select the desired pulse-level design space.
@@ -51,7 +50,7 @@ Pulse IDs 1, 2, 3, 4, 5, 6 correspond to Hardware-efficient (HE) pulse, fixed CR
 [Example Script for Application Benchmark](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/example_script.sh) provides two examples for quantum chemistry and quantum finance.
 
 ```python
-python -W ignore -u main.py --backend=FakeManila --application=chemistry --pulse_id=1 --molecule=H2 --n_parameters=7 > testchemistyH2HE2q.txt&
+python -W ignore -u main.py --backend=FakeManila --application=chemistry --pulse_id=1 --molecule=H2 > testchemistyH2HE2q.txt&
 
 ```
 
