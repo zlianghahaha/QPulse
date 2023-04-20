@@ -1,6 +1,6 @@
 # Parameterized Quantum Pulse
 This tool is designed to give a detailed guidance for how to design pulse-level quantum circuit.
-At this early version we provide: measure the expressivity, entanglement capability, and effective parameter dimension of parameterized quantum pulses, and also provide 6 different suggested pulse-level design spaces for application benchmarking.
+At this early version we provide: measure the expressivity, entanglement capability, and effective parameter dimension of parameterized quantum pulses, and also provide 6 different suggested pulse-level design spaces for application benchmarking. For details about the design space, please check our paper [Towards Advantages of Parameterized Quantum Pulses](https://arxiv.org/pdf/2304.09253.pdf).
 
 To begin, please install all the required packages on your virtual machine or conda environment by running:
 
