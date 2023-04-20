@@ -11,11 +11,11 @@ from scipy.optimize import minimize, LinearConstraint
 import pdb
 
 def IBMQ_ini(backend_str):
-    IBMQ.save_account('c7a71bc4b2858304571d35eb5e371e449e5c346110b36c744f51b65388d4ac1b7468740d58d6fcd44967b2080d02af986cc22f2406a84813bbabd9ff5bf06315', overwrite=True)
+    IBMQ.save_account('Your Token', overwrite=True)
     IBMQ.load_account() # Load account from disk
     IBMQ.providers()    # List all available providers
     provider = IBMQ.get_provider(
-        hub="ibm-q-ornl", group="ornl", project="csc509"
+        hub="Your hub", group="Your group, project="Your project"
     )
     #backend = provider.get_backend('ibmq_guadalupe')
     #IBMQ.load_account()
