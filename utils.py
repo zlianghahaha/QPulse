@@ -435,7 +435,7 @@ def HE_pulse(backend, amp, angle, width):
       # layer 1
       sched_list = []
       with pulse.build(backend) as sched1:
-          qubits = (0,1,3,4)
+          qubits = (0,1,2,3)
           for i in range(4):
               pulse.play(drag_pulse(backend, amp[i], angle[i]), DriveChannel(qubits[i]))
       sched_list.append(sched1)
@@ -529,7 +529,7 @@ def HE_pulsefixedamp(backend, amp, angle, width):
       # layer 1
       sched_list = []
       with pulse.build(backend) as sched1:
-          qubits = (0,1,3,4)
+          qubits = (0,1,2,3)
           for i in range(4):
               pulse.play(drag_pulse(backend, amp[i], angle[i]), DriveChannel(qubits[i]))
       sched_list.append(sched1)
