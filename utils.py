@@ -25,7 +25,6 @@ from qiskit_nature.drivers.second_quantization import ElectronicStructureDriverT
 
 
 # below for q_finance
-from qiskit.algorithms.minimum_eigensolvers import NumPyMinimumEigensolver, QAOA, SamplingVQE
 from qiskit.algorithms.optimizers import COBYLA
 from qiskit.circuit.library import TwoLocal
 from qiskit.result import QuasiDistribution
@@ -225,6 +224,9 @@ def pauli_dict_dist(dist,molecule):
     if(molecule=='LiH'):
         molecule = Molecule(geometry=[["Li", [0.0, 0.0, 0.0]], ["H", [0.0, 0.0, dist]]], charge=0, multiplicity=1)
         nmo=3
+    if(molecule=='H2O'):
+        molecule = Molecule(geometry=[["O", [0.0,0.0,0.0], "H", [0.757, 0.586, 0.0]], ["H", [-0.757, 0.586, 0.0]]], charge=0, multiplicity=3)
+        nmo=7
     if(molecule=='HeH'):
         molecule = Molecule(geometry=[["He", [0.0, 0.0, 0.0]], ["H", [0.0, 0.0, dist]]], charge=1, multiplicity=1)   
         nmo=2
@@ -238,6 +240,7 @@ def pauli_dict_dist(dist,molecule):
     # return es_problem.grouped_property_transformed.get_property("ElectronicEnergy").nuclear_repulsion_energy
     qubit_converter = QubitConverter(mapper=ParityMapper(), two_qubit_reduction=True)
     qubit_op = qubit_converter.convert(second_q_op[0], num_particles=es_problem.num_particles)
+    print(qubit_op)
     for pauli_op in qubit_op.to_pauli_op().oplist:
         pauli_dict[pauli_op.primitive.to_label()] = pauli_op.coeff
     n_qubit = len(qubit_op.to_pauli_op().oplist[0].primitive.to_label())
