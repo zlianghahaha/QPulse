@@ -58,7 +58,7 @@ python -W ignore -u main.py --backend=FakeManila --application=chemistry --pulse
 This example runs Qiskit-Dynamics with the system model from FakeManila, and the application is ground state energy for H2 in quantum chemistry. The pulse-level design space is hardware-efficient pulse with 7 parameters.
 
 ## 3. Citation
-
+```python
 @article{liang2022pan,
   title={Pan: Pulse ansatz on nisq machines},
   author={Liang, Zhiding and Cheng, Jinglei and Ren, Hang and Wang, Hanrui and Hua, Fei and Ding, Yongshan and Chong, Fred and Han, Song and Shi, Yiyu and Qian, Xuehai},
@@ -72,3 +72,5 @@ This example runs Qiskit-Dynamics with the system model from FakeManila, and the
   journal={arXiv preprint arXiv:2304.09253},
   year={2023}
 }
+
+```
