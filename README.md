@@ -1,6 +1,6 @@
 # Parameterized Quantum Pulse
 This tool is designed to give a detailed guidance for how to design pulse-level quantum circuit.
-At this early version we provide: measure the expressivity, entanglement capability, and effective parameter dimension of parameterized quantum pulses, and also provide 6 different suggested pulse-level design spaces for application benchmarking. For details about the design space, please check our paper [Towards Advantages of Parameterized Quantum Pulses](https://arxiv.org/pdf/2304.09253.pdf).
+At this early version we provide: measure the expressivity, entanglement capability, and effective parameter dimension of parameterized quantum pulses, and also provide 6 different suggested pulse-level design spaces for application benchmarking. For details about the design space, please check our paper [Towards Advantages of Parameterized Quantum Pulses](https://arxiv.org/pdf/2304.09253.pdf), for how to implement the progressive learning framework of the pulse ansatz, please refer to our paper [Pan: Pulse ansatz on nisq machines](https://arxiv.org/pdf/2208.01215.pdf).
 
 To begin, please install all the required packages on your virtual machine or conda environment by running:
 
@@ -56,3 +56,19 @@ python -W ignore -u main.py --backend=FakeManila --application=chemistry --pulse
 ```
 
 This example runs Qiskit-Dynamics with the system model from FakeManila, and the application is ground state energy for H2 in quantum chemistry. The pulse-level design space is hardware-efficient pulse with 7 parameters.
+
+## 3. Citation
+
+@article{liang2022pan,
+  title={Pan: Pulse ansatz on nisq machines},
+  author={Liang, Zhiding and Cheng, Jinglei and Ren, Hang and Wang, Hanrui and Hua, Fei and Ding, Yongshan and Chong, Fred and Han, Song and Shi, Yiyu and Qian, Xuehai},
+  journal={arXiv preprint arXiv:2208.01215},
+  year={2022}
+}
+
+@article{liang2023towards,
+  title={Towards Advantages of Parameterized Quantum Pulses},
+  author={Liang, Zhiding and Cheng, Jinglei and Song, Zhixin and Ren, Hang and Yang, Rui and Wang, Hanrui and Liu, Kecheng and Kogge, Peter and Li, Tongyang and Ding, Yongshan and others},
+  journal={arXiv preprint arXiv:2304.09253},
+  year={2023}
+}

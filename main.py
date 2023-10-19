@@ -12,6 +12,12 @@ import pdb
 
 
 def IBMQ_ini(backend_str):
+    IBMQ.save_account('Your Token', overwrite=True)
+    IBMQ.load_account() # Load account from disk
+    IBMQ.providers()    # List all available providers
+    provider = IBMQ.get_provider(
+        hub="", group="", project=""
+    )
     backend = provider.get_backend(backend_str)
     return backend
 
