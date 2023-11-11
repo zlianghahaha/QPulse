@@ -32,10 +32,10 @@ if __name__ == '__main__':
     parser.add_argument('--n_assets', type=int,   default=2,           help='number of assets')
     parser.add_argument('--tune_freq',type=bool,  default=False,       help='specify if frequencies are tuned')
     parser.add_argument('--n_iter',   type=int,   default=100,         help='number of training iterations')
-    parser.add_argument('--n_shot',   type=int,   default=1024,        help='number of shots for measurement')
+    parser.add_argument('--n_shot',   type=int,   default=3000,        help='number of shots for measurement')
     parser.add_argument('--n_step',   type=int,   default=1,           help='number of pulse_layers')
     parser.add_argument('--max_jobs', type=int,   default=8,           help='number of max_jobs for multiprocessing')
-    parser.add_argument('--rhobeg',   type=float, default=0.1 ,        help='rhobeg for non-gradient optimizer')
+    parser.add_argument('--rhobeg',   type=float, default=0.2 ,        help='rhobeg for non-gradient optimizer')
     #parser.add_argument('--n_parameters',   type=int, default=7,       help='number of parameters in pulse ansatz')
 
     args = parser.parse_args()
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     max_jobs    = args.max_jobs
     #parameters  = args.n_parameters
 
-    seed = 40
+    seed = 48
     np.random.seed(seed)
     if('Fake' in backend_str):
         backend_sim = ""
@@ -117,6 +117,33 @@ if __name__ == '__main__':
         params = np.zeros(parameters)
         LC = gen_LC_finance(assets, parameters)
         finance_res = minimize(finance,params,args=(pauli_dict,assets,backend,max_jobs,n_shot,pulse_id),method=optimizer,
+                            constraints=LC,options={'rhobeg':rhobeg,'maxiter':n_iter,'disp':True})
+        print(pauli_dict)
+        print('The optimized loss func value: {}'.format(finance_res.fun))
+    elif application == 'pauli':
+        if(molecule=='BeH'):
+            dist_list = [1.5] #works on: LiH
+        else:
+            print('Molecule not Found')
+        pauli_dict, n_qubit = pauli_dict_list(pauli=molecule)
+        if pulse_id == 1:
+            parameters = 5*n_qubit - 3
+        elif pulse_id == 2:
+            parameters = 2*(2*n_qubit - 1)
+        elif pulse_id == 3:
+            parameters = 6*n_qubit - 3
+        elif pulse_id == 4:
+            parameters = 5*n_qubit -2
+        elif pulse_id == 5:
+            parameters = 9 * n_qubit -7
+        elif pulse_id == 6:
+            parameters = 8*n_qubit - 6
+        else:
+            print('Please select correct Pulse_ID.')
+        params = np.zeros(parameters)
+        LC = gen_LC_finance(n_qubit, parameters)
+        #pauli_dict = finance_dict(2,seed,0.5)
+        finance_res = minimize(vqe,params,args=(pauli_dict,n_qubit,backend,max_jobs,n_shot,pulse_id),method=optimizer,
                             constraints=LC,options={'rhobeg':rhobeg,'maxiter':n_iter,'disp':True})
         print(pauli_dict)
         print('The optimized loss func value: {}'.format(finance_res.fun))
