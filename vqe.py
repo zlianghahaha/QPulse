@@ -143,6 +143,12 @@ def vqe(params,pauli_dict,n_qubit,backend,max_jobs,n_shot,pulse_id):
             prepulse = block_dressedpulse2q(backend,amp,angle,width)
         elif pulse_id == 6:
             prepulse = block_dressedpulse2qfixedamp(backend,amp_fixed,angle_fixed,width)
+    elif n_qubit == 5:
+        if pulse_id ==1:
+            prepulse = HE_pulse5q(backend,amp,angle,width)
+    elif n_qubit == 6:
+        if pulse_id ==1:
+            prepulse = HE_pulse6q(backend,amp,angle,width)
         else:
             print('Pulse ID is wrong. Please type 1 - 6.')
     else: 

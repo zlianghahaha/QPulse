@@ -35,7 +35,7 @@ if __name__ == '__main__':
     parser.add_argument('--n_shot',   type=int,   default=3000,        help='number of shots for measurement')
     parser.add_argument('--n_step',   type=int,   default=1,           help='number of pulse_layers')
     parser.add_argument('--max_jobs', type=int,   default=8,           help='number of max_jobs for multiprocessing')
-    parser.add_argument('--rhobeg',   type=float, default=0.2 ,        help='rhobeg for non-gradient optimizer')
+    parser.add_argument('--rhobeg',   type=float, default=0.1 ,        help='rhobeg for non-gradient optimizer')
     #parser.add_argument('--n_parameters',   type=int, default=7,       help='number of parameters in pulse ansatz')
 
     args = parser.parse_args()
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     max_jobs    = args.max_jobs
     #parameters  = args.n_parameters
 
-    seed = 48
+    seed = 2
     np.random.seed(seed)
     if('Fake' in backend_str):
         backend_sim = ""
@@ -123,9 +123,18 @@ if __name__ == '__main__':
     elif application == 'pauli':
         if(molecule=='BeH'):
             dist_list = [1.5] #works on: LiH
+        if(molecule=='H2_3-21G'):
+            dist_list = [1.5] #works on: LiH
+        if(molecule=='NH'):
+            dist_list = [1.5] #works on: LiH
+        if(molecule=='BeH+'):
+            dist_list = [1.5] #works on: LiH
+        if(molecule=='F2'):
+            dist_list = [1.5] #works on: LiH
         else:
             print('Molecule not Found')
         pauli_dict, n_qubit = pauli_dict_list(pauli=molecule)
+        print(n_qubit)
         if pulse_id == 1:
             parameters = 5*n_qubit - 3
         elif pulse_id == 2:
@@ -140,7 +149,7 @@ if __name__ == '__main__':
             parameters = 8*n_qubit - 6
         else:
             print('Please select correct Pulse_ID.')
-        params = np.zeros(parameters)
+        params = np.random.rand(parameters) * 0.1
         LC = gen_LC_finance(n_qubit, parameters)
         #pauli_dict = finance_dict(2,seed,0.5)
         finance_res = minimize(vqe,params,args=(pauli_dict,n_qubit,backend,max_jobs,n_shot,pulse_id),method=optimizer,
