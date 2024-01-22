@@ -1,6 +1,6 @@
 # Parameterized Quantum Pulse
 This tool is designed to give a detailed guidance for how to design pulse-level quantum circuit.
-At this early version we provide: measure the expressivity, entanglement capability, and effective parameter dimension of parameterized quantum pulses, and also provide 6 different suggested pulse-level design spaces for application benchmarking. 
+At this early version we provide: measure the expressivity, entanglement capability, and effective parameter dimension of parameterized quantum pulses, and also provide 6 different suggested pulse-level design spaces for application benchmarking. For details about the design space, please check our paper [Towards Advantages of Parameterized Quantum Pulses](https://arxiv.org/pdf/2304.09253.pdf), for how to implement the progressive learning framework of the pulse ansatz, please refer to our paper [Pan: Pulse ansatz on nisq machines](https://arxiv.org/pdf/2208.01215.pdf).
 
 To begin, please install all the required packages on your virtual machine or conda environment by running:
 
@@ -13,13 +13,13 @@ This section focuses on measuring the expressivity, entanglement capability, and
 
 If you want to reproduce the result from the paper. Please go to `/MetricsMeasurement/data/`.
 
-You'll find a Jupyter Notebook file Pulse_Expressibility&Entanglement, Open the file and import data from `/MetricsMeasurement/data/metricsmeasurementdata`
+You'll find a Jupyter Notebook file [Pulse_Expressibility&Entanglement](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/data/Pulse_Expressibility%26Entanglement.ipynb), Open the file and import data from `/MetricsMeasurement/data/metricsmeasurementdata`
 
-As for expressivity, please go to `/MetricsMeasurement/Expressivity`, and check Expressivity Example.This example demonstrates how to calculate the expressivity of a single-qubit pulse, including methods to compute the measured result from the target pulse, theoretical result, and K-L divergence.
+As for expressivity, please go to `/MetricsMeasurement/Expressivity`, and check [Expressivity Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/Expressivity/JakartaPulseVQA_Expressibility.ipynb).This example demonstrates how to calculate the expressivity of a single-qubit pulse, including methods to compute the measured result from the target pulse, theoretical result, and K-L divergence.
 
-For entanglement capability, navigate to `/MetricsMeasurement/EntCapability` check Entangement Capability Example.
+For entanglement capability, navigate to `/MetricsMeasurement/EntCapability` check [Entangement Capability Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/EntCapability/Pulse_Ent_Example.ipynb).
 
-As for effective parameter dimension, please go to `/MetricsMeasurement/EPD` check Effective Parameter Dimension Example.
+As for effective parameter dimension, please go to `/MetricsMeasurement/EPD` check [Effective Parameter Dimension Example](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/MetricsMeasurement/EPD/EPD_Example.ipynb).
 
 
 ## 2. Application Benchmark
@@ -48,7 +48,7 @@ Also, be sure to select the desired pulse-level design space.
 
 Pulse IDs 1, 2, 3, 4, 5, 6 correspond to Hardware-efficient (HE) pulse, fixed CR amp HE pulse, Decay-layer pulse, fixed CR amp Decay-layer pulse, Dressed pulse, and fixed CR dressed pulse. For detailed structures of these pulses, please refer to our paper.
 
-Example Script for Application Benchmark provides two examples for quantum chemistry and quantum finance.
+[Example Script for Application Benchmark](https://github.com/zlianghahaha/ParameterizedQuantumPulse/blob/main/example_script.sh) provides two examples for quantum chemistry and quantum finance.
 
 ```python
 python -W ignore -u main.py --backend=FakeManila --application=chemistry --pulse_id=1 --molecule=H2 > testchemistyH2HE2q.txt&
@@ -57,3 +57,20 @@ python -W ignore -u main.py --backend=FakeManila --application=chemistry --pulse
 
 This example runs Qiskit-Dynamics with the system model from FakeManila, and the application is ground state energy for H2 in quantum chemistry. The pulse-level design space is hardware-efficient pulse with 7 parameters.
 
+## 3. Citation
+```python
+@article{liang2022pan,
+  title={Pan: Pulse ansatz on nisq machines},
+  author={Liang, Zhiding and Cheng, Jinglei and Ren, Hang and Wang, Hanrui and Hua, Fei and Ding, Yongshan and Chong, Fred and Han, Song and Shi, Yiyu and Qian, Xuehai},
+  journal={arXiv preprint arXiv:2208.01215},
+  year={2022}
+}
+
+@article{liang2023towards,
+  title={Towards Advantages of Parameterized Quantum Pulses},
+  author={Liang, Zhiding and Cheng, Jinglei and Song, Zhixin and Ren, Hang and Yang, Rui and Wang, Hanrui and Liu, Kecheng and Kogge, Peter and Li, Tongyang and Ding, Yongshan and others},
+  journal={arXiv preprint arXiv:2304.09253},
+  year={2023}
+}
+
+```

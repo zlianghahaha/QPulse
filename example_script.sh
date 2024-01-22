@@ -25,4 +25,3 @@ python -W ignore -u main.py --backend=FakeManila --application=finance --pulse_i
 
 python -W ignore -u main.py --backend=FakeManila --application=pauli --pulse_id=1 --molecule=BeH > testchemistyBeHHE3q.txt&
 
-python -W ignore -u main.py --backend=FakeManila --application=pauli --pulse_id=5 --molecule=H2_3-21G > testchemistyH2Dressed4q.txt&
