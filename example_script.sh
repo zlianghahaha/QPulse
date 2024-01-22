@@ -23,5 +23,3 @@ python -W ignore -u main.py --backend=FakeManila --application=finance --pulse_i
 python -W ignore -u main.py --backend=FakeManila --application=finance --pulse_id=5 --n_assets=4  > testfinance4assetsDressed4q.txt&
 python -W ignore -u main.py --backend=FakeManila --application=finance --pulse_id=6 --n_assets=4  > testfinance4assetsDressedfixedamp4q.txt&
 
-python -W ignore -u main.py --backend=FakeManila --application=pauli --pulse_id=1 --molecule=BeH > testchemistyBeHHE3q.txt&
-

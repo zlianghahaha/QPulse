@@ -245,32 +245,7 @@ def pauli_dict_dist(dist,molecule):
         pauli_dict[pauli_op.primitive.to_label()] = pauli_op.coeff
     n_qubit = len(qubit_op.to_pauli_op().oplist[0].primitive.to_label())
     return pauli_dict, n_qubit
-def pauli_dict_list(pauli):
-    if(pauli=='BeH'):
-        pauli_dict = {
-            'III': -12.488598,
-            'IIZ': -0.85829425,
-            'IZI': -0.85829425,
-            'IZZ': 0.0230431788,
-            'ZII': -0.85829425,
-            'ZIZ': 0.0230431788,
-            'ZZI': 0.0230431788,
-            'ZZZ': 0.642470739,
-            'IIX': -0.0434044897,
-            'ZZX': -0.0434044897,
-            'IXI': -0.0434044897,
-            'ZXZ': -0.0434044897,
-            'IXX': 0.0121246896,
-            'IYY': 0.0121246896,
-            'XII': -0.0434044897,
-            'XZZ': -0.0434044897,
-            'XIX': 0.0121246896,
-            'YIY': 0.0121246896,
-            'XXI': 0.0121246896,
-            'YYI': 0.0121246896
-            }
-        n_qubit = 3
-    return pauli_dict, n_qubit
+
 def extract(pulse_prog):
     amp_list = list(map(lambda x: x[1].pulse.amp, pulse_prog.blocks[0].operands[0].filter(is_parametric_pulse).instructions))
     amp_list = np.array(amp_list)
@@ -456,35 +431,6 @@ def HE_pulse2qfixedamp(backend, amp, angle, width):
               for sched in sched_list:
                   pulse.call(sched)
 
-
-    return my_program
-def HE_pulse_3q(backend, amp, angle, width):
-    with pulse.build(backend) as my_program1:
-      # layer 1
-      sched_list = []
-      with pulse.build(backend) as sched1:
-          qubits = (0,1,2)
-          for i in range(3):
-              pulse.play(drag_pulse(backend, amp[i], angle[i]), DriveChannel(qubits[i]))
-      sched_list.append(sched1)
-
-      with pulse.build(backend) as sched2: #这里control channel可以根据目标改一下
-          uchan = pulse.control_channels(0, 1)[0]
-          pulse.play(cr_pulse(backend,amp[3], angle[3], width[0]), uchan)
-      sched_list.append(sched2)
-      
-
-      with pulse.build(backend) as sched4:
-          uchan = pulse.control_channels(1, 2)[0]
-          pulse.play(cr_pulse(backend, amp[4], angle[4], width[1]), uchan)
-      sched_list.append(sched4)
-
-    
-      with pulse.build(backend) as my_program:
-        with pulse.transpiler_settings(initial_layout= [0,1,2]):
-          with pulse.align_sequential():
-              for sched in sched_list:
-                  pulse.call(sched)
 
     return my_program
 def HE_pulse(backend, amp, angle, width):
